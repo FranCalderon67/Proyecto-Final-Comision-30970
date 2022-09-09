@@ -1,0 +1,19 @@
+
+  .form-flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-flex-container input {
+    width: 300px;
+    caret-color: red;
+    margin: 0.5rem 0 1rem 1rem;
+  }
+  .form-flex-container label {
+    margin-left: 1rem;
+  }
+  .form-flex-container button {
+    width: 250px;
+    margin-left: 1rem;
+    background-color: yellowgreen;
+    font-size: 18px;
+  }
