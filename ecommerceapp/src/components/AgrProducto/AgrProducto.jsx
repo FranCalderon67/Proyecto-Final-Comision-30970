@@ -2,21 +2,6 @@ import React from "react";
 import './agrProducto.css'
 import WebSocket from "./WebSocket";
 function AgrProducto() {
-    // const enviarProducto = (e) => {
-    //     e.preventDefault()
-    //     let name = document.getElementById("nombreProducto").value;
-    //     let price = document.getElementById("precioProducto").value;
-    //     let image = document.getElementById("imagenProducto").value;
-    //     let category = document.getElementById("categoriaProducto").value
-    //     const producto = { name, price, image, category };
-    //     name = "";
-    //     price = "";
-    //     image = "";
-    //     category = "";
-    //     WebSocket(producto)
-    //     return false;
-    // };
-
 
     return (
         <>
@@ -30,7 +15,7 @@ function AgrProducto() {
                     <label htmlFor="price">Precio</label>
                     <input id="precioProducto" type="number" name="price" />
                     <label htmlFor="categoria">Categoria</label>
-                    <input id="categoriaProducto" type="text" name="categoria" />
+                    <input id="categoriaProducto" type="text" name="category" />
                     <button type="submit" onClick={WebSocket}> Cargar Producto</button>
                 </form>
             </div>

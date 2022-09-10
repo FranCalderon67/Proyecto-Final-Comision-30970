@@ -1,0 +1,23 @@
+.chat-container {
+    margin-left: 1rem;
+  }
+  #messages {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+  }
+  .autor {
+    color: blue;
+    font-weight: bold;
+  }
+  .hora {
+    color: brown;
+  }
+  .mensaje {
+    color: green;
+    font-style: italic;
+  }
+  
+  .avatar {
+    height: 50px;
+    width: 75px;
+  }

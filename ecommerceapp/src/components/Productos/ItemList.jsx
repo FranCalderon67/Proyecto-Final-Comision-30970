@@ -14,11 +14,6 @@ function ItemList({ productos }) {
 }
 
 
-// function ItemList({ productos }) {
-//     return (
-//         <Item item={productos} />
-//     );
-// }
 
 
 export default ItemList;
