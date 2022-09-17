@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Item = ({ item }) => {
@@ -10,14 +10,14 @@ const Item = ({ item }) => {
                     <img className="card-img-top" src={item.image} alt="ERROR" />
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title cardPelicula">{item.name}</h5>
+                    <h5 className="card-title">{item.name}</h5>
 
-                    <p className="cardPelicula">$ {item.price}</p>
+                    <p>$ {item.price}</p>
                 </div>
 
-                {/* <Link to={`/productos/${item.id}`} type="button" className="btn btn-success">
+                <Link to={`/productos/${item._id}`} type="button" className="btn btn-primary">
                     Más Información
-                </Link> */}
+                </Link>
             </div>
         </>
     );

@@ -2,18 +2,22 @@
   .form-flex-container {
     display: flex;
     flex-direction: column;
+    width: 300px;
   }
   .form-flex-container input {
-    width: 300px;
-    caret-color: red;
+    width: 100%;
     margin: 0.5rem 0 1rem 1rem;
   }
   .form-flex-container label {
     margin-left: 1rem;
+  } 
+  #descripcionProducto{
+     width: 100%;
+    margin: 0.5rem 0 1rem 1rem;
   }
-  .form-flex-container button {
-    width: 250px;
+
+   .form-flex-container button {
+    width: 100%;
     margin-left: 1rem;
-    background-color: yellowgreen;
     font-size: 18px;
   }

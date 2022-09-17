@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import './navBar.css'
-// import CartWidget from "./CartWidget";
+import CartWidget from "../Carrito/CartWidget";
 import { Link } from "react-router-dom";
-// import { CartContext } from "./CartContext";
+import { CartContext } from "../Carrito/CartContext";
 
 function NavBar() {
-    // style={{ "--bs-scroll-height: 100"}}
+    const { cartCount } = useContext(CartContext);
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Home</Link >
+                    <Link className="navbar-brand" to="/"><img className="logo" src={"https://images-na.ssl-images-amazon.com/images/I/8168SYLpnrL.png"} alt="LOGO" /></Link >
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -38,11 +38,10 @@ function NavBar() {
                             <li className="nav-item">
                                 <Link id="btnCerrarSesion" className="nav-link" to="/">Cerrar Sesion</Link >
                             </li>
-                            <li className="nav-item">
-                                <Link id="btnCarrito" className="nav-link" to="/carrito">Carrito</Link >
-                            </li>
+                            <Link to="/carrito">
+                                <CartWidget cantidad={cartCount} />
+                            </Link>
                         </ul>
-
                     </div>
                 </div>
                 <Link to="/perfil"> <button id="bienvenido"></button></Link >

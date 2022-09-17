@@ -12,7 +12,7 @@ function Login() {
 
                         <input className="inputUsuario" id="nombreIngreso" type="email" name="email" placeholder="Usuario" required />
                         <input className="inputUsuario" id="passwordIngreso" type="password" name="password" placeholder="Password" required />
-                        <button className="btn-login">LOGIN</button>
+                        <button className="btn btn-primary">LOGIN</button>
 
                         <p className="login-form-registrado">No estas registrado? <span><Link to="/signup">Registrate!</Link></span></p>
                     </form>

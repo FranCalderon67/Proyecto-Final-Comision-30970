@@ -1,7 +1,25 @@
+.navbar{
+  background-color: #ffdb15;
+}
+
+.container-fluid{
+  margin-left: 2rem;
+}
+
+.logo{
+  height: 45px;
+  width: 45px;
+}
+
+.nav-link{
+  color: black;
+  text-decoration: none;
+}
+
+
 #bienvenido{
     font-size: 20px;
     margin-right: 5rem;
     height: 50px;
     width: 100px;
-    
-  }
+ }

@@ -16,13 +16,12 @@ function AgrProducto() {
                     <input id="precioProducto" type="number" name="price" />
                     <label htmlFor="categoria">Categoria</label>
                     <input id="categoriaProducto" type="text" name="category" />
-                    <button type="submit" onClick={WebSocket}> Cargar Producto</button>
+                    <label htmlFor="descripcion">Descripcion</label>
+                    <textarea id="descripcionProducto" type="text" name="description" />
+                    <button className="btn btn-primary" type="submit" onClick={WebSocket}> Cargar Producto</button>
                 </form>
             </div>
-
         </>
-
-
     )
 }
 

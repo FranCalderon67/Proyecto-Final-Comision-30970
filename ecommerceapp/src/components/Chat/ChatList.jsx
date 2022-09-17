@@ -1,6 +1,6 @@
 import React from "react";
 import Chat from "./Chat";
-
+// import AgrMensaje from "../AgrMensaje/AgrMensaje";
 
 function ChatList({ msj }) {
     return (

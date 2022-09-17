@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ChatList from "./ChatList";
+
 import axios from "axios";
 
 //Aca tengo que consumir la DB
@@ -29,6 +30,7 @@ function ChatContainer() {
                 <p>Cargando Chat</p>
             ) : (
                 <section>
+
                     <ChatList msj={mensajes} />
                 </section>
             )}
