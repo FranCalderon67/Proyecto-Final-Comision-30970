@@ -13,16 +13,14 @@ routerProducto.get('/productos/:id', async (req, res) => {
 })
 
 
-routerProducto.get("/home", async (req, res) => {
-  const productos = await producto.obtenerTodos();
-  res.render("home", { productos });
-});
+// routerProducto.get("/home", async (req, res) => {
+//   res.json(await producto.obtenerTodos())
+// });
 
 routerProducto.get('/productos/cat/:categoria', async (req, res) => {
   const categoria = req.params.categoria;
   const categoriaBuscada = await producto.obtenerPorCategoria(categoria)
   console.log(categoriaBuscada)
-  // res.render("categoria", { categoriaBuscada })
   res.send(categoriaBuscada)
 })
 

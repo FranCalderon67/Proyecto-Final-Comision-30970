@@ -7,21 +7,14 @@ const upload = require('../config/multer.js')
 routerUsuario.use(passport.initialize());
 // routerUsuario.use(passport.session());
 
-routerUsuario.get("/", (req, res) => {
-  res.redirect("/home");
-});
 
-routerUsuario.get("/login", (req, res) => {
-  res.render(path.join(process.cwd(), "./public/hbsViews/login.hbs"));
-});
 
-routerUsuario.post("/login", passport.authenticate("login", { failureRedirect: "/failedLogin", successRedirect: "/home" }));
 
-routerUsuario.get("/signup", (req, res) => {
-  res.render(path.join(process.cwd(), "./public/hbsViews/signup.hbs"));
-});
 
-routerUsuario.post("/signup", upload.single('avatar'), passport.authenticate("signup", { failureRedirect: "/failedSignup", successRedirect: "/login" }));
+routerUsuario.post("/login", passport.authenticate("login", { failureRedirect: "/failedLogin", successRedirect: "http://localhost:3000/" }));
+
+
+routerUsuario.post("/signup", upload.single('avatar'), passport.authenticate("signup", { failureRedirect: "/failedSignup", successRedirect: "http://localhost:3000/login" }));
 
 
 

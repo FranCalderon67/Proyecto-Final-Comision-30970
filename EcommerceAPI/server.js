@@ -6,7 +6,7 @@ const session = require("express-session");
 const cors = require('cors')
 //Imports de Mongo
 const MongoStore = require("connect-mongo");
-const MongoUri = require("./services/config/mongoConfig.js");
+const MongoUri = require("./config/mongoConfig.js");
 
 //Imports de Socket y Server
 const { Server: HttpServer } = require("http");
@@ -17,16 +17,17 @@ const socketServer = new SocketServer(httpServer);
 
 //Imports de Funcionalidad
 
-const chatSocket = require("./services/WebSockets/webSocketMensajes.js");
-const productosSocket = require("./services/WebSockets/webSocketProducto.js");
-const routerUsuario = require("./services/Routes/rutasUsuario.js");
-const routerHomeWeb = require("./services/utils/home.js");
-const routerCarrito = require('./services/Routes/rutasCarrito.js')
-const routerProducto = require('./services/Routes/rutasProducto.js')
-const routerPrefijo = require('./services/utils/prefijos.js')
+const chatSocket = require("./WebSockets/webSocketMensajes.js");
+const productosSocket = require("./WebSockets/webSocketProducto.js");
+const routerUsuario = require("./Routes/rutasUsuario.js");
+const routerCarrito = require('./Routes/rutasCarrito.js')
+const routerProducto = require('./Routes/rutasProducto.js')
+const routerChat = require('./Routes/rutasChat.js')
+const routerHomeWeb = require("./utils/home.js");
+const routerPrefijo = require('./utils/prefijos.js')
 // const yargs = require("yargs");
 // const argumentos = process.argv.slice[2];
-const { logger } = require('./services/config/logs.js')
+const { logger } = require('./config/logs.js')
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -63,6 +64,7 @@ app.use(routerHomeWeb);
 app.use(routerCarrito)
 app.use(routerProducto)
 app.use(routerPrefijo)
+app.use(routerChat)
 
 
 //Coneccion de Sockets
