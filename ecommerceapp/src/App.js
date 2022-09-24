@@ -7,7 +7,7 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import { CartProvider } from './components/Carrito/CartContext'
 import Cart from "./components/Carrito/Carrito";
-
+import './app.css'
 
 function App() {
   return (

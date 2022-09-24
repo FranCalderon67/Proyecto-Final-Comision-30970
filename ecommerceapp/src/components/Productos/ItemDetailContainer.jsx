@@ -10,20 +10,22 @@ function ItemDetailContainer() {
     const { _id } = useParams();
 
     const getElegido = async () => {
-        try {
-            const document = await axios.get(`http://localhost:8080/productos/${_id}`)
-            setProducto(document.data);
-            setCargando(true);
-        } catch (error) {
-            console.log("error", error);
-        }
+        const document = await axios.get(`http://localhost:8080/productos/${_id}`)
+        setTimeout(() => {
+            try {
+                setProducto(document.data);
+                setCargando(true);
+            } catch (error) {
+                console.log("error", error);
+            }
+        }, 2000)
     };
 
     useEffect(() => {
         getElegido();
     });
 
-    return <>{cargando ? <ItemDetail item={producto} /> : <p>Cargando</p>}</>;
+    return <>{cargando ? <ItemDetail item={producto} /> : <img className="cargando" src={"https://images-na.ssl-images-amazon.com/images/I/8168SYLpnrL.png"} alt='Cargando' />}</>;
 }
 
 export default ItemDetailContainer;

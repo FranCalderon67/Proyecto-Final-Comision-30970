@@ -41,7 +41,7 @@ function SignUp() {
                                 <option id="paises"></option>
                             </select>
                             <h3>Telefono</h3>
-                            <input className="inputUsuario" id="prefijoRegistro" placeholder="Prefijo" required />
+                            <input className="inputUsuario" id="prefijoRegistro" type='tel' name='prefijo' placeholder="Prefijo" required />
                             <input className="inputUsuario" id="telefonoRegistro" type="tel" name="telefono" placeholder="Telefono" required />
                             <h3>Usuario</h3>
                             <input className="inputUsuario" id="emailRegistro" type="email" name="email" placeholder="Email" required />

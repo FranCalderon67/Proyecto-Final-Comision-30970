@@ -7,14 +7,27 @@ routerChat.get('/mensajes', async (req, res) => {
 })
 
 routerChat.post("/mensajes", async (req, res) => {
-    const msj = req.body
-    console.log(msj)
-    if (msj.username === "" || msj.text === "") {
+    const mensaje = {
+        author: {
+            email: req.body.username,
+            nombre: req.body.firstname,
+            apellido: req.body.lastname,
+            edad: req.body.age,
+            alias: req.body.alias,
+            avatar: req.body.avatar,
+        },
+        text: req.body.text,
+        fyh: new Date().toLocaleString()
+    };
+    console.log(mensaje)
+    if (mensaje.username === "" || mensaje.text === "") {
         res.send(alert('Algunos campos del producto estan vacios'))
     } else {
-        await chat.agregarItem(msj);
+        await chat.agregarItem(mensaje);
         res.redirect("http://localhost:3000/");
     }
 });
+
+
 
 module.exports = routerChat;

@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const producto = require("../Daos/daoProducto.js");
+
 const routerProducto = Router();
 
 routerProducto.get('/productos', async (req, res) => {
   res.json(await producto.obtenerTodos())
+
 })
 
 routerProducto.get('/productos/:id', async (req, res) => {

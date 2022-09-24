@@ -1,11 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './navBar.css'
 import CartWidget from "../Carrito/CartWidget";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Carrito/CartContext";
+import axios from "axios";
 
 function NavBar() {
     const { cartCount } = useContext(CartContext);
+    const [user, setUser] = useState("")
+
+    const getUser = async () => {
+        try {
+            const activeUser = await axios.get('http://localhost:8080/user')
+            setUser(activeUser.data)
+            console.log(activeUser.data)
+        } catch (error) {
+            console.log('ERROR=>', error)
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [user])
+
+
+
     return (
         <>
             <nav className="navbar navbar-expand-lg">
@@ -44,7 +63,7 @@ function NavBar() {
                         </ul>
                     </div>
                 </div>
-                <Link to="/perfil"> <button id="bienvenido"></button></Link >
+                <Link to="/perfil"> <button id="bienvenido">{user}</button></Link >
             </nav>
         </>
     );

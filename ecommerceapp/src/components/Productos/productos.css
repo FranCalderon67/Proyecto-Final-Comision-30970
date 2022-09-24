@@ -75,4 +75,21 @@
     margin: 3rem 2rem 0 4rem;
   }
   
- 
+  .cargando {
+    position: relative;
+    z-index: 1;
+    width: 350px;
+    animation-name: giro;
+    animation-duration: 3s;
+    opacity: 1;
+    z-index: 1;
+    margin: 1rem 0 0 33%;
+  }
+  
+  @keyframes giro {
+    0% {
+      z-index: 1;
+      opacity: 1;
+      transform: rotateY(-1800deg);
+    }
+  }

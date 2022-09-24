@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import ItemList from "./ItemList";
 import axios from "axios";
+import './productos.css'
 
-//Aca tengo que consumir la DB
 
 function ItemListContainer() {
     const [productos, setProductos] = useState([]);
@@ -13,24 +12,29 @@ function ItemListContainer() {
     const { categoria } = useParams();
 
     const getData = async () => {
-        try {
-            const itemCollection = await axios.get('http://localhost:8080/productos')
-            setProductos(itemCollection.data);
-            setCargando(false);
-        } catch (error) {
-            console.log("error", error);
-        }
+        const itemCollection = await axios.get('http://localhost:8080/productos')
+        setTimeout(() => {
+            try {
+                setProductos(itemCollection.data);
+                setCargando(false);
+            } catch (error) {
+                console.log("error", error);
+            }
+
+        }, 3000)
     };
 
 
     const getDataCategoryQuery = async () => {
-        try {
-            const consulta = await axios.get(`http://localhost:8080/productos/cat/${categoria}`)
-            setProductos(consulta.data);
-            setCargando(false);
-        } catch (error) {
-            console.log("error", error);
-        }
+        const consulta = await axios.get(`http://localhost:8080/productos/cat/${categoria}`)
+        setTimeout(() => {
+            try {
+                setProductos(consulta.data);
+                setCargando(false);
+            } catch (error) {
+                console.log("error", error);
+            }
+        }, 3000)
     };
 
     useEffect(() => {
@@ -40,7 +44,7 @@ function ItemListContainer() {
     return (
         <>
             {cargando ? (
-                <p>Cargando</p>
+                <img className="cargando" src={"https://images-na.ssl-images-amazon.com/images/I/8168SYLpnrL.png"} alt='Cargando' />
             ) : (
                 <section>
                     <ItemList productos={productos} />
