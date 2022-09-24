@@ -18,14 +18,18 @@ function ItemDetailContainer() {
             } catch (error) {
                 console.log("error", error);
             }
-        }, 2000)
+        }, 3000)
     };
 
     useEffect(() => {
         getElegido();
     });
 
-    return <>{cargando ? <ItemDetail item={producto} /> : <img className="cargando" src={"https://images-na.ssl-images-amazon.com/images/I/8168SYLpnrL.png"} alt='Cargando' />}</>;
+    return <>
+        {cargando ?
+            <ItemDetail item={producto} /> :
+            <img className="cargando" src={"https://images-na.ssl-images-amazon.com/images/I/8168SYLpnrL.png"} alt='Cargando' />}
+    </>;
 }
 
 export default ItemDetailContainer;

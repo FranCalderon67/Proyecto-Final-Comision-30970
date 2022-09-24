@@ -1,40 +1,24 @@
 const { Router } = require("express");
-const producto = require("../Daos/daoProducto.js");
-
+const productoController = require('../controllers/productos.js')
 const routerProducto = Router();
+const admin = require('../middleware/authorization.js')
 
-routerProducto.get('/productos', async (req, res) => {
-  res.json(await producto.obtenerTodos())
+routerProducto.get('/productos', (req, res) => {
+  productoController.obtenerTodos(req, res)
+})
+
+routerProducto.get('/productos/:id', (req, res) => {
+  productoController.obtenerPorId(req, res)
 
 })
 
-routerProducto.get('/productos/:id', async (req, res) => {
-  const id = req.params.id
-  const buscado = await producto.obtenerPorId(id);
-  res.send(buscado)
+routerProducto.get('/productos/cat/:categoria', (req, res) => {
+  productoController.obtenerPorCategoria(req, res)
 })
 
 
-// routerProducto.get("/home", async (req, res) => {
-//   res.json(await producto.obtenerTodos())
-// });
-
-routerProducto.get('/productos/cat/:categoria', async (req, res) => {
-  const categoria = req.params.categoria;
-  const categoriaBuscada = await producto.obtenerPorCategoria(categoria)
-  console.log(categoriaBuscada)
-  res.send(categoriaBuscada)
-})
-
-
-routerProducto.post("/productos", async (req, res) => {
-  const prod = req.body;
-  if (prod.nombre === "" || prod.precio === "" || prod.imagen === "" || prod.category === "") {
-    res.send(alert('Algunos campos del producto estan vacios'))
-  } else {
-    await producto.agregarItem(prod);
-    res.redirect("http://localhost:3000/");
-  }
+routerProducto.post("/productos", admin, (req, res) => {
+  productoController.agregarItem(req, res)
 });
 
 module.exports = routerProducto;

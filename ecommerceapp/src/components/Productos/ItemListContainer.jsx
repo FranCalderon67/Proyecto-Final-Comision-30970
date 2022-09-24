@@ -20,8 +20,7 @@ function ItemListContainer() {
             } catch (error) {
                 console.log("error", error);
             }
-
-        }, 3000)
+        }, 3500)
     };
 
 

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useCartContext } from '../Carrito/CartContext';
 import ItemCount from "./ItemCount";
 
-
 function ItemDetail({ item }) {
     const [show, setShow] = useState(true);
     const [contador, setContador] = useState(0);
@@ -61,7 +60,6 @@ function ItemDetail({ item }) {
                     </div>
                 )}
             </div>
-
         </>
     );
 }
