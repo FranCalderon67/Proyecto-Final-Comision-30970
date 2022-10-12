@@ -9,11 +9,18 @@ const MongoStore = require("connect-mongo");
 const MongoUri = require("./config/mongoConfig.js");
 
 //Imports de Socket y Server
-const { Server: HttpServer } = require("http");
+const { Server: HttpServer, Server } = require("http");
 const httpServer = new HttpServer(app);
-// const { Server: SocketServer } = require("socketio");
+
 const { Server: SocketServer } = require('socket.io')
-const socketServer = new SocketServer(httpServer);
+const socketServer = new SocketServer(httpServer, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"]
+    }
+
+});
+
 
 //Imports de Funcionalidad
 
@@ -68,9 +75,12 @@ app.use(routerChat)
 
 
 //Coneccion de Sockets
+
+
 socketServer.on("connection", async (socket) => {
     chatSocket(socket, socketServer.sockets);
     productosSocket(socket, socketServer.sockets);
+
 });
 
 

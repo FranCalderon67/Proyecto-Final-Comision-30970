@@ -7,15 +7,16 @@ import axios from "axios";
 
 function NavBar() {
     const { cartCount } = useContext(CartContext);
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState('')
 
     const getUser = async () => {
         try {
             const activeUser = await axios.get('http://localhost:8080/user')
             setUser(activeUser.data)
             console.log(activeUser.data)
+
         } catch (error) {
-            console.log('ERROR=>', error)
+            console.log("ERROR=>", error)
         }
     }
 

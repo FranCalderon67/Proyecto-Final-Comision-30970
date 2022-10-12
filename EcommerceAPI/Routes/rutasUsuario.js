@@ -42,7 +42,6 @@ routerUsuario.get("/logout", (req, res) => {
 });
 
 routerUsuario.get("/user", (req, res) => {
-
   if (req.session?.passport) {
     res.send(req.session.passport.user.username.nombre)
   } else {

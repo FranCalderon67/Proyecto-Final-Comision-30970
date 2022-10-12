@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import axios from "axios"
+
+
+const eliminarItem = async (_id) => {
+    return await axios.delete(`http://localhost:8080/productos/${_id}`)
+}
 
 const Item = ({ item }) => {
+
+
+
+
     return (
         <>
             <div key={item._id} className="card" style={{ width: "18rem" }}>
@@ -18,6 +28,9 @@ const Item = ({ item }) => {
                 <Link to={`/productos/${item._id}`} type="button" className="btn btn-primary">
                     Más Información
                 </Link>
+
+                <button className="btn btn-danger" onClick={() => eliminarItem(item._id)}>Eliminar Producto</button>
+
             </div>
         </>
     );

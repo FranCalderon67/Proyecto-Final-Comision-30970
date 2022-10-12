@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const productoController = require('../controllers/productos.js')
 const routerProducto = Router();
-const admin = require('../middleware/authorization.js')
+// const admin = require('../middleware/authorization.js')
 
 routerProducto.get('/productos', (req, res) => {
   productoController.obtenerTodos(req, res)
@@ -17,8 +17,12 @@ routerProducto.get('/productos/cat/:categoria', (req, res) => {
 })
 
 
-routerProducto.post("/productos", admin, (req, res) => {
-  productoController.agregarItem(req, res)
+routerProducto.post("/productos", (req, res, next) => {
+  productoController.agregarItem(req, res, next)
 });
+
+routerProducto.delete("/productos/:id", (req, res, next) => {
+  productoController.eliminarItem(req, res, next)
+})
 
 module.exports = routerProducto;

@@ -31,17 +31,30 @@ controllersProducto.obtenerPorCategoria = async (req, res) => {
     }
 }
 
-controllersProducto.agregarItem = async (req, res) => {
+controllersProducto.agregarItem = async (req, res, next) => {
     const prod = req.body
     try {
         if (prod.nombre === "" || prod.precio === "" || prod.imagen === "" || prod.category === "") {
             res.send(alert('Algunos campos del producto estan vacios'))
         } else {
             await producto.agregarItem(prod);
+            next()
             res.redirect("http://localhost:3000/");
+            // res.json(producto.obtenerTodos())
         }
     } catch (error) {
         console.log('ERROR=>', error)
+    }
+}
+
+controllersProducto.eliminarItem = async (req, res, next) => {
+    const id = req.params.id
+    try {
+        await producto.eliminarItem(id)
+        next()
+        res.redirect("http://localhost:3000");
+    } catch (error) {
+        console.log("ERROR=>", error)
     }
 }
 
@@ -50,12 +63,3 @@ controllersProducto.agregarItem = async (req, res) => {
 
 module.exports = controllersProducto
 
-// const obtenerTodos = async (res, req) => {
-//     return res.json(await producto.obtenerTodos())
-// }
-
-
-
-// module.exports = {
-//     obtenerTodos
-// }

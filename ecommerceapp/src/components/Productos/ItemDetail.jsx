@@ -41,7 +41,7 @@ function ItemDetail({ item }) {
                         <p className="itemPrice">$ {item.price}</p>
                         <p className="cantidadDetail">Cantidad</p>
                         <ItemCount clickMenos={restar} count={contador} clickMas={incrementar} />
-                        <p className="itemDescription">Aca tengo que poner la descripcion del producto en la DB</p>
+                        <p className="itemDescription">{item.description}</p>
                         <div>
                             <button className="btn btn-primary btnDetail" condition disabled={show ? "" : "disabled"} onClick={dobleFuncion}>
                                 Agregar al Carrito

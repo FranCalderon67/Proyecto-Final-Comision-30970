@@ -11,6 +11,9 @@ function ItemListContainer() {
     const [cargando, setCargando] = useState(true);
     const { categoria } = useParams();
 
+
+
+
     const getData = async () => {
         const itemCollection = await axios.get('http://localhost:8080/productos')
         setTimeout(() => {
